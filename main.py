@@ -4,7 +4,6 @@ import os
 from dotenv import load_dotenv, find_dotenv
 import datetime 
 
-
 # Discord Intents
 intents = discord.Intents.default()
 intents.message_content = True
@@ -15,7 +14,7 @@ load_dotenv(find_dotenv())
 bot_token = os.getenv('TOKEN')
 
 # API_KEY
-API_KEY = "insert Open Weather API KEY here"
+API_KEY = "Insert Open Weather API Key"
 
 
 def info(data):
@@ -38,19 +37,43 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    # Help
+    # Help Command
     if message.content.startswith("?help"):
         embed = discord.Embed(
                 title="COMMANDS",
-                description="Do $ + the city, country initals \nExample : ?London, GB",
+                description="Here is the list of commands!",
                 colour = 0x3498DB,
                 timestamp=datetime.datetime.utcnow()
         )
 
+        embed.add_field(
+            name = "Help & Support", 
+            value = "?help \n?donate",
+            inline = False
+        )
+
+        embed.add_field(
+            name = "Weather Commands", 
+            value = "$London, GB \n$ + city, country initals",
+            inline = False
+        )
+
         embed.set_author(name="WEATHER BOT", icon_url="https://media.discordapp.net/attachments/1081590091182510220/1081905211787989003/weather2.png?width=469&height=469")
+
         await message.channel.send(embed=embed)
 
-    # Open Weather
+    # Donate Command
+    if message.content.startswith("?donate"):
+        embed = discord.Embed(
+            description = "BTC address : bc1q2slgd0du9tfhh7yyjzfa02pnxdjunw20ldhurt \nETH address : 0x67350aB07FBd1115FF7E480AddEf6DA97873879b",
+            colour = 0x57F287
+        )
+
+        embed.set_author(name = "DONATE", icon_url="https://media.discordapp.net/attachments/1081590091182510220/1081979344978727092/donate.png?width=469&height=469")
+
+        await message.channel.send(embed=embed)
+
+    # Open Weather Command
     if message.content.startswith("$"):
         global info, API_KEY
 
@@ -65,7 +88,7 @@ async def on_message(message):
                     colour = 0x3498DB,
                     timestamp=datetime.datetime.utcnow()
             )
-            
+
             await message.channel.send(embed=embed)
             
         except:
@@ -74,7 +97,10 @@ async def on_message(message):
                     colour = 0x992D22,
                     timestamp=datetime.datetime.utcnow()
             )
+
+            embed.set_author(name="ERROR", icon_url="https://media.discordapp.net/attachments/1081590091182510220/1081976393899966564/error.jpg?width=469&height=469")
+
             await message.channel.send(embed=embed)
-            
+
 # Runs bot
 client.run(bot_token)
