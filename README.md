@@ -3,7 +3,7 @@
 <h2 class="code-line" data-line-start=4 data-line-end=5 ><a id="Command_List_4"></a>Command List</h2>
 <ul>
 <li class="has-line-data" data-line-start="6" data-line-end="11">
-<p class="has-line-data" data-line-start="6" data-line-end="7">Help (!help)</p>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Help (?help)</p>
 <ul>
 <li class="has-line-data" data-line-start="7" data-line-end="9">Provides instructions on the available commands and how to format them</li>
 </ul>
