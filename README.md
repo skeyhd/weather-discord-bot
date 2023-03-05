@@ -24,7 +24,7 @@
 <p class="has-line-data" data-line-start="19" data-line-end="20"><img src="https://i.gyazo.com/7e0981a038ecc06655eb511127ee5605.png" alt="invalid input"></p>
 </li>
 <li class="has-line-data" data-line-start="21" data-line-end="25">
-<p class="has-line-data" data-line-start="21" data-line-end="22">Donate (!donate)</p>
+<p class="has-line-data" data-line-start="21" data-line-end="22">Donate (?donate)</p>
 <ul>
 <li class="has-line-data" data-line-start="22" data-line-end="24">Donation command can provide information for users who wish to donate</li>
 </ul>
